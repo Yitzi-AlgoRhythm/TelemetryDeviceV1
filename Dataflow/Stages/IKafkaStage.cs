@@ -4,6 +4,6 @@ namespace TelemetryDeviceV1.Dataflow.Stages
 {
     public interface IKafkaStage
     {
-        public void Transmit(ParameterData parameter);
+        public Task Transmit(ParameterData parameter);
     }
 }
