@@ -1,4 +1,4 @@
-﻿namespace TelemetryDeviceV1.ICD
+﻿namespace TelemetryDeviceV1.Deserialization
 {
     public static class IcdConstants
     {

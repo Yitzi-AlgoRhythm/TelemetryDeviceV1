@@ -1,6 +1,6 @@
 ﻿using PacketDotNet;
 using SharpPcap;
-using TelemetryDeviceV1.ICD;
+using TelemetryDeviceV1.Deserialization;
 
 namespace TelemetryDeviceV1.Dataflow.Stages
 {
@@ -14,14 +14,14 @@ namespace TelemetryDeviceV1.Dataflow.Stages
 
             if (udp == null || udp.PayloadData.Length < 3)
             {
-                return Enumerable.Empty<byte>();
+                return null!;
             }
 
             for (int i = 0; i < IcdConstants.SyncBytes.Length; i++)
             {
                 if (IcdConstants.SyncBytes[i] != udp.PayloadData[i])
                 {
-                    return Enumerable.Empty<byte>();
+                    return null!;
                 }
             }
 
