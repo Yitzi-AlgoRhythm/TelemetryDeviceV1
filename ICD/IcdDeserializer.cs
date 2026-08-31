@@ -4,11 +4,12 @@ namespace TelemetryDeviceV1.ICD
 {
     public class IcdDeserializer
     {
-        public required Dictionary<string, IcdParameter[]> CorrelatorGroups { get; init; }
+        public required Dictionary<byte, IcdParameter[]> CorrelatorGroups { get; init; }
 
         private static readonly string filePath = Path.Combine(AppContext.BaseDirectory, "Resources", "ICD_parameters.json");
 
-        private static readonly string[] groupIdentifiers = {"0.25", "1.0",  "2.0", "4.0", "8.0", "16.0"};
+        private static readonly string[] groupIdentifiers = ["0.25", "1.0", "2.0", "4.0", "8.0", "16.0"];
+        private static readonly byte[] byteIdentifiers = [0, 1, 2, 4, 8, 16];
 
 
         public IcdDeserializer()
@@ -20,11 +21,11 @@ namespace TelemetryDeviceV1.ICD
                 icdParameters = JsonSerializer.Deserialize<IcdParameter[]>(stream)!; // check if there's a better way to deal with null here
             }
 
-            CorrelatorGroups = new Dictionary<string, IcdParameter[]>();
+            CorrelatorGroups = new Dictionary<byte, IcdParameter[]>();
 
-            foreach (string identifier in groupIdentifiers)
+            for (int i = 0; i < groupIdentifiers.Length; i++)
             {
-                CorrelatorGroups.Add(identifier, icdParameters.Where(param => param.Correlator == identifier).ToArray());
+                CorrelatorGroups.Add(byteIdentifiers[i], icdParameters.Where(param => param.Correlator == groupIdentifiers[i]).ToArray());
             }
         }
     }
