@@ -21,19 +21,17 @@ namespace TelemetryDeviceV1.Dataflow.Stages
                 yield break;
             }
 
-            byte[] dataAsArray = data.ToArray();
+            byte[] dataArr = data.ToArray();
 
-            ulong timestampMS = BitConverter.ToUInt64(dataAsArray);
+            ulong timestampMS = BitConverter.ToUInt64(dataArr);
 
-            Span<byte> formattedData = dataAsArray.AsSpan(8, dataAsArray.Length - 8);
+            byte correlatorByte = dataArr[8];
 
-            byte correlatorByte = formattedData[0];
-
-            formattedData = formattedData[1..];
+            dataArr = dataArr[9..];
 
             foreach (IcdParameter p in _deserializer.CorrelatorGroups[correlatorByte])
             {
-                byte[] result = formattedData.Slice(p.Offset, p.Size).ToArray();
+                byte[] result = dataArr.Skip(p.Offset).Take(p.Size).ToArray();
 
                 ValueBase value;
 

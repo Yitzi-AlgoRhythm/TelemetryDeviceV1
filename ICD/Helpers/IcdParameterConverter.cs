@@ -22,7 +22,7 @@
 
                 string description = root.GetProperty("Description").GetString()!;
 
-                ParameterDataType type = JsonSerializer.Deserialize<ParameterDataType>(root.GetProperty("Type").GetRawText(), options);
+                ParameterDataType type = JsonSerializer.Deserialize<ParameterDataType>(root.GetProperty("DataType").GetRawText(), options);
 
                 int offset = root.GetProperty("Offset").GetInt32();
 
@@ -30,7 +30,7 @@
 
                 string correlator = root.GetProperty("Correlator").GetString()!;
 
-                TelemetryUnit unit = JsonSerializer.Deserialize<TelemetryUnit>(root.GetProperty("Unit").GetRawText(), options);
+                TelemetryUnit unit = JsonSerializer.Deserialize<TelemetryUnit>(root.GetProperty("Units").GetRawText(), options);
 
                 double min = root.GetProperty("Min").GetDouble();
 

@@ -4,9 +4,11 @@ namespace TelemetryDeviceV1.Dataflow.Stages.Helpers
 {
     public class TelemetryProducer : IDisposable
     {
+        private const string bootstrapServers = "localhost:9092";
+
         private readonly IProducer<string, string> producer;
 
-        public TelemetryProducer(string bootstrapServers)
+        public TelemetryProducer()
         {
             ProducerConfig config = new ProducerConfig
             {

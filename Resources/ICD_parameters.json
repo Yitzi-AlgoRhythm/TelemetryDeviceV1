@@ -23,8 +23,8 @@
     "Correlator": "0.25",
     "Units": "",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 10000
     }
   },
   {
@@ -37,8 +37,8 @@
     "Correlator": "0.25",
     "Units": "",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 1000000
     }
   },
   {
@@ -51,8 +51,8 @@
     "Correlator": "0.25",
     "Units": "HOURS",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 1000000
     }
   },
   {
@@ -65,8 +65,8 @@
     "Correlator": "0.25",
     "Units": "HOURS",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 1000000
     }
   },
   {
@@ -79,8 +79,8 @@
     "Correlator": "0.25",
     "Units": "HOURS",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 1000000
     }
   },
   {
@@ -93,8 +93,8 @@
     "Correlator": "0.25",
     "Units": "HOURS",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 1000000
     }
   },
   {
@@ -107,8 +107,8 @@
     "Correlator": "0.25",
     "Units": "HOURS",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 1000000
     }
   },
   {
@@ -121,8 +121,8 @@
     "Correlator": "0.25",
     "Units": "HOURS",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 1000000
     }
   },
   {
@@ -135,8 +135,8 @@
     "Correlator": "0.25",
     "Units": "HOURS",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 1000000
     }
   },
   {
@@ -149,8 +149,8 @@
     "Correlator": "0.25",
     "Units": "HOURS",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 1000000
     }
   },
   {
@@ -163,8 +163,8 @@
     "Correlator": "0.25",
     "Units": "UNITS",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 1000000
     }
   },
   {
@@ -177,8 +177,8 @@
     "Correlator": "0.25",
     "Units": "UNITS",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 1000000
     }
   },
   {
@@ -191,8 +191,8 @@
     "Correlator": "0.25",
     "Units": "UNITS",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 1000000
     }
   },
   {
@@ -205,8 +205,8 @@
     "Correlator": "0.25",
     "Units": "UNITS",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 1000000
     }
   },
   {
@@ -219,8 +219,8 @@
     "Correlator": "0.25",
     "Units": "",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 1000000
     }
   },
   {
@@ -233,8 +233,8 @@
     "Correlator": "0.25",
     "Units": "<units>",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 584,
+      "Max": 584
     }
   },
   {
@@ -247,8 +247,8 @@
     "Correlator": "0.25",
     "Units": "<units>",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 1465,
+      "Max": 1465
     }
   },
   {
@@ -261,8 +261,8 @@
     "Correlator": "0.25",
     "Units": "<units>",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 2632,
+      "Max": 2632
     }
   },
   {
@@ -275,8 +275,8 @@
     "Correlator": "0.25",
     "Units": "<units>",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 3513,
+      "Max": 3513
     }
   },
   {
@@ -303,8 +303,8 @@
     "Correlator": "1.0",
     "Units": "DEG",
     "Range": {
-      "Min": 45,
-      "Max": 120
+      "Min": 50,
+      "Max": 130
     }
   },
   {
@@ -360,7 +360,7 @@
     "Units": "FEET",
     "Range": {
       "Min": 0,
-      "Max": 40000
+      "Max": 50000
     }
   },
   {
@@ -416,7 +416,7 @@
     "Units": "PSI",
     "Range": {
       "Min": 0,
-      "Max": 5000
+      "Max": 3500
     }
   },
   {
@@ -430,7 +430,7 @@
     "Units": "PSI",
     "Range": {
       "Min": 0,
-      "Max": 5000
+      "Max": 3500
     }
   },
   {
@@ -444,7 +444,7 @@
     "Units": "PSI",
     "Range": {
       "Min": 0,
-      "Max": 5000
+      "Max": 3500
     }
   },
   {
@@ -458,7 +458,7 @@
     "Units": "PSI",
     "Range": {
       "Min": 0,
-      "Max": 5000
+      "Max": 3500
     }
   },
   {
@@ -527,8 +527,8 @@
     "Correlator": "1.0",
     "Units": "",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 1000000
     }
   },
   {
@@ -765,8 +765,8 @@
     "Correlator": "1.0",
     "Units": "DDM",
     "Range": {
-      "Min": -1.1,
-      "Max": 1.1
+      "Min": -1,
+      "Max": 1
     }
   },
   {
@@ -933,8 +933,8 @@
     "Correlator": "1.0",
     "Units": "DDM",
     "Range": {
-      "Min": -0.6,
-      "Max": 0.6
+      "Min": -0.4,
+      "Max": 0.4
     }
   },
   {
@@ -1018,7 +1018,7 @@
     "Units": "PSI",
     "Range": {
       "Min": 0,
-      "Max": 125
+      "Max": 100
     }
   },
   {
@@ -1032,7 +1032,7 @@
     "Units": "PSI",
     "Range": {
       "Min": 0,
-      "Max": 125
+      "Max": 100
     }
   },
   {
@@ -1046,7 +1046,7 @@
     "Units": "PSI",
     "Range": {
       "Min": 0,
-      "Max": 125
+      "Max": 100
     }
   },
   {
@@ -1060,7 +1060,7 @@
     "Units": "PSI",
     "Range": {
       "Min": 0,
-      "Max": 125
+      "Max": 100
     }
   },
   {
@@ -1087,8 +1087,8 @@
     "Correlator": "1.0",
     "Units": "DEG",
     "Range": {
-      "Min": -400,
-      "Max": 200
+      "Min": 0,
+      "Max": 175
     }
   },
   {
@@ -1101,8 +1101,8 @@
     "Correlator": "1.0",
     "Units": "DEG",
     "Range": {
-      "Min": -400,
-      "Max": 200
+      "Min": 0,
+      "Max": 175
     }
   },
   {
@@ -1115,8 +1115,8 @@
     "Correlator": "1.0",
     "Units": "DEG",
     "Range": {
-      "Min": -400,
-      "Max": 200
+      "Min": 0,
+      "Max": 175
     }
   },
   {
@@ -1129,8 +1129,8 @@
     "Correlator": "1.0",
     "Units": "DEG",
     "Range": {
-      "Min": -400,
-      "Max": 200
+      "Min": 0,
+      "Max": 175
     }
   },
   {
@@ -1213,7 +1213,7 @@
     "Correlator": "1.0",
     "Units": "DEG",
     "Range": {
-      "Min": -51.75,
+      "Min": -75,
       "Max": 80
     }
   },
@@ -1340,7 +1340,7 @@
     "Units": "DEG",
     "Range": {
       "Min": -30,
-      "Max": 99
+      "Max": 100
     }
   },
   {
@@ -1451,8 +1451,8 @@
     "Correlator": "1.0",
     "Units": "FT/MIN",
     "Range": {
-      "Min": -9500,
-      "Max": 9000
+      "Min": -7900,
+      "Max": 6000
     }
   },
   {
@@ -1620,7 +1620,7 @@
     "Units": "MB",
     "Range": {
       "Min": 0,
-      "Max": 320
+      "Max": 350
     }
   },
   {
@@ -1634,7 +1634,7 @@
     "Units": "IN",
     "Range": {
       "Min": 0,
-      "Max": 38
+      "Max": 35
     }
   },
   {
@@ -1675,8 +1675,8 @@
     "Correlator": "2.0",
     "Units": "DEG",
     "Range": {
-      "Min": -60,
-      "Max": 45
+      "Min": -25,
+      "Max": 25
     }
   },
   {
@@ -1731,8 +1731,8 @@
     "Correlator": "4.0",
     "Units": "FEET",
     "Range": {
-      "Min": -600,
-      "Max": 40000
+      "Min": -1000,
+      "Max": 50000
     }
   },
   {
@@ -1745,8 +1745,8 @@
     "Correlator": "4.0",
     "Units": "FT/MIN",
     "Range": {
-      "Min": -10420,
-      "Max": 9380
+      "Min": -8000,
+      "Max": 8000
     }
   },
   {
@@ -1759,8 +1759,8 @@
     "Correlator": "4.0",
     "Units": "DEG",
     "Range": {
-      "Min": -30,
-      "Max": 60
+      "Min": -25,
+      "Max": 50
     }
   },
   {
@@ -1773,8 +1773,8 @@
     "Correlator": "4.0",
     "Units": "DEG",
     "Range": {
-      "Min": -30,
-      "Max": 60
+      "Min": -25,
+      "Max": 50
     }
   },
   {
@@ -1787,8 +1787,8 @@
     "Correlator": "4.0",
     "Units": "DEG",
     "Range": {
-      "Min": -27,
-      "Max": 33
+      "Min": -25,
+      "Max": 50
     }
   },
   {
@@ -1801,8 +1801,8 @@
     "Correlator": "4.0",
     "Units": "DEG",
     "Range": {
-      "Min": -33,
-      "Max": 66
+      "Min": -25,
+      "Max": 50
     }
   },
   {
@@ -1844,7 +1844,7 @@
     "Units": "KNOTS",
     "Range": {
       "Min": 0,
-      "Max": 640
+      "Max": 450
     }
   },
   {
@@ -1858,7 +1858,7 @@
     "Units": "KNOTS",
     "Range": {
       "Min": 0,
-      "Max": 400
+      "Max": 300
     }
   },
   {
@@ -2011,8 +2011,8 @@
     "Correlator": "4.0",
     "Units": "G",
     "Range": {
-      "Min": -1.4,
-      "Max": 0.6
+      "Min": -1,
+      "Max": 1
     }
   },
   {
@@ -2025,8 +2025,8 @@
     "Correlator": "4.0",
     "Units": "G",
     "Range": {
-      "Min": -1.5,
-      "Max": 0.7
+      "Min": -1,
+      "Max": 1
     }
   },
   {
@@ -2039,8 +2039,8 @@
     "Correlator": "4.0",
     "Units": "MACH",
     "Range": {
-      "Min": 0,
-      "Max": 1
+      "Min": 0.0,
+      "Max": 0.92
     }
   },
   {
@@ -2068,7 +2068,7 @@
     "Units": "%RPM",
     "Range": {
       "Min": 0,
-      "Max": 125
+      "Max": 100
     }
   },
   {
@@ -2082,7 +2082,7 @@
     "Units": "%RPM",
     "Range": {
       "Min": 0,
-      "Max": 125
+      "Max": 100
     }
   },
   {
@@ -2110,7 +2110,7 @@
     "Units": "%RPM",
     "Range": {
       "Min": 0,
-      "Max": 125
+      "Max": 100
     }
   },
   {
@@ -2124,7 +2124,7 @@
     "Units": "%RPM",
     "Range": {
       "Min": 0,
-      "Max": 150
+      "Max": 100
     }
   },
   {
@@ -2138,7 +2138,7 @@
     "Units": "%RPM",
     "Range": {
       "Min": 0,
-      "Max": 150
+      "Max": 100
     }
   },
   {
@@ -2152,7 +2152,7 @@
     "Units": "%RPM",
     "Range": {
       "Min": 0,
-      "Max": 125
+      "Max": 100
     }
   },
   {
@@ -2166,7 +2166,7 @@
     "Units": "%RPM",
     "Range": {
       "Min": 0,
-      "Max": 125
+      "Max": 100
     }
   },
   {
@@ -2180,7 +2180,7 @@
     "Units": "%RPM",
     "Range": {
       "Min": 0,
-      "Max": 125
+      "Max": 100
     }
   },
   {
@@ -2194,7 +2194,7 @@
     "Units": "%RPM",
     "Range": {
       "Min": 0,
-      "Max": 125
+      "Max": 100
     }
   },
   {
@@ -2278,7 +2278,7 @@
     "Units": "KNOTS",
     "Range": {
       "Min": 0,
-      "Max": 640
+      "Max": 600
     }
   },
   {
@@ -2334,7 +2334,7 @@
     "Units": "IN/SEC",
     "Range": {
       "Min": 0,
-      "Max": 0.7
+      "Max": 1
     }
   },
   {
@@ -2348,7 +2348,7 @@
     "Units": "IN/SEC",
     "Range": {
       "Min": 0,
-      "Max": 0.7
+      "Max": 1
     }
   },
   {
@@ -2362,7 +2362,7 @@
     "Units": "IN/SEC",
     "Range": {
       "Min": 0,
-      "Max": 0.7
+      "Max": 1
     }
   },
   {
@@ -2376,7 +2376,7 @@
     "Units": "IN/SEC",
     "Range": {
       "Min": 0,
-      "Max": 0.7
+      "Max": 1
     }
   },
   {
@@ -2404,7 +2404,7 @@
     "Units": "KNOTS",
     "Range": {
       "Min": 0,
-      "Max": 165
+      "Max": 200
     }
   },
   {
@@ -2417,8 +2417,8 @@
     "Correlator": "8.0",
     "Units": "DEG",
     "Range": {
-      "Min": -23,
-      "Max": 30
+      "Min": -40,
+      "Max": 40
     }
   },
   {
@@ -2445,8 +2445,8 @@
     "Correlator": "8.0",
     "Units": "DEG",
     "Range": {
-      "Min": -66,
-      "Max": 66
+      "Min": -90,
+      "Max": 90
     }
   },
   {
@@ -2459,8 +2459,8 @@
     "Correlator": "8.0",
     "Units": "G",
     "Range": {
-      "Min": -4.6,
-      "Max": 3
+      "Min": -2,
+      "Max": 4
     }
   },
   {
@@ -2473,8 +2473,8 @@
     "Correlator": "16.0",
     "Units": "G",
     "Range": {
-      "Min": -0.61,
-      "Max": 0.56
+      "Min": -0.7,
+      "Max": 0.7
     }
   },
   {
@@ -2487,8 +2487,8 @@
     "Correlator": "16.0",
     "Units": "G",
     "Range": {
-      "Min": -1.35,
-      "Max": 1.55
+      "Min": -1.0,
+      "Max": 1.0
     }
   },
   {
@@ -2501,8 +2501,8 @@
     "Correlator": "16.0",
     "Units": "G",
     "Range": {
-      "Min": -0.6,
-      "Max": 0.55
+      "Min": -0.7,
+      "Max": 0.7
     }
   },
   {
@@ -2515,8 +2515,8 @@
     "Correlator": "16.0",
     "Units": "FT/MIN",
     "Range": {
-      "Min": -8470,
-      "Max": 8945
+      "Min": -7000,
+      "Max": 7000
     }
   }
 ]
