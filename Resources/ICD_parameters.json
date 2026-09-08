@@ -779,8 +779,8 @@
     "Correlator": "1.0",
     "Units": "",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 255
     }
   },
   {
@@ -1542,7 +1542,7 @@
   {
     "Name": "CCPF",
     "Description": "CONTROL COLUMN POSITION F/O",
-    "DataType": "unit16",
+    "DataType": "uint16",
     "Offset": 2,
     "Size": 3,
     "Mask": "0x7FFF80",
@@ -1577,8 +1577,8 @@
     "Correlator": "2.0",
     "Units": "COUNTS",
     "Range": {
-      "Min": null,
-      "Max": null
+      "Min": 0,
+      "Max": 3500
     }
   },
   {

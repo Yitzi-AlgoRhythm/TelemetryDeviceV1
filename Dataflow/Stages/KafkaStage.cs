@@ -15,7 +15,23 @@ namespace TelemetryDeviceV1.Dataflow.Stages
 
         public async Task Transmit(ParameterData parameterValue)
         {
-            string json = JsonSerializer.Serialize(parameterValue);
+            Console.WriteLine($"Serializing parameter {parameterValue.Name}");
+
+            string json;
+
+            try
+            {
+                json = JsonSerializer.Serialize(parameterValue);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+            
+
+            Console.WriteLine("Sending JSON:");
+            Console.WriteLine(json);
 
             await _producer.SendTelemetryAsync(json);
         }

@@ -1,10 +1,11 @@
 ﻿namespace TelemetryDeviceV1.ICD.Helpers
 {
     using System;
+    using System.Reflection;
     using System.Text.Json;
     using System.Text.Json.Serialization;
     using global::TelemetryDeviceV1.ICD.Enums;
-    using ParameterDataLib;
+    using ParameterDataLib.Enums;
 
     namespace TelemetryDeviceV1.Deserialization
     {
@@ -32,13 +33,16 @@
 
                 TelemetryUnit unit = JsonSerializer.Deserialize<TelemetryUnit>(root.GetProperty("Units").GetRawText(), options);
 
-                double min = root.GetProperty("Min").GetDouble();
+                JsonElement range = root.GetProperty("Range");
 
-                double max = root.GetProperty("Max").GetDouble();
+                double min = range.GetProperty("Min").GetDouble();
+                double max = range.GetProperty("Max").GetDouble();
 
-                string bitMaskRaw = root.GetProperty("BitMask").GetString()!;
+                string bitMaskRaw = root.GetProperty("Mask").GetString()!;
 
                 byte[] bitMask = Convert.FromHexString(bitMaskRaw[2..]);
+
+                Console.WriteLine($"Deserialized parameter {name}");
 
                 return new IcdParameter
                 {

@@ -38,15 +38,11 @@ namespace TelemetryDeviceV1.Sniffing.Helpers
                 if (d.Description == CaptureDeviceDescription)
                 {
                     device = d;
+                    return device;
                 }
             }
 
-            if (device == null)
-            {
-                throw new Exception("Correct capture device not found.");
-            }
-
-            return device;
+            throw new Exception("Correct capture device not found.");
         }
     }
 }

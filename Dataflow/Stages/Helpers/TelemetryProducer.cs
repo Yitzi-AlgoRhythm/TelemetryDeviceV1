@@ -13,7 +13,7 @@ namespace TelemetryDeviceV1.Dataflow.Stages.Helpers
             ProducerConfig config = new ProducerConfig
             {
                 BootstrapServers = bootstrapServers,
-                Acks = Acks.Leader,
+                Acks = Acks.All,
                 EnableIdempotence = true,
                 LingerMs = 5,
                 CompressionType = CompressionType.Snappy
@@ -29,7 +29,16 @@ namespace TelemetryDeviceV1.Dataflow.Stages.Helpers
                 Value = jsonPayload
             };
 
-            await producer.ProduceAsync("telemetry-topic", message);
+            try
+            {
+                DeliveryResult<string, string> result = await producer.ProduceAsync("telemetry-topic", message);
+                Console.WriteLine($"Delivered to {result.TopicPartitionOffset}");
+            }
+            catch (ProduceException<string, string> ex)
+            {
+                Console.WriteLine($"Delivery failed: {ex.Error.Reason}");
+                throw;
+            }
         }
 
         public void Dispose()

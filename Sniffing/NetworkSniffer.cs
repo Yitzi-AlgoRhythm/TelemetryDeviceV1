@@ -28,6 +28,8 @@ namespace TelemetryDeviceV1.Sniffing
                 _packetHandler.Complete();
             });
 
+            device.Open(DeviceModes.Promiscuous);
+
             device.StartCapture();
         }
 

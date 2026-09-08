@@ -52,6 +52,8 @@ namespace TelemetryDeviceV1.Dataflow.Stages
                     Value = value,
                     TimestampMS = timestampMS
                 };
+
+                // make a function to call yield return on here for clean code
             }
         }
     }

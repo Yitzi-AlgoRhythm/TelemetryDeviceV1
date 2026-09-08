@@ -12,7 +12,7 @@ namespace TelemetryDeviceV1.Dataflow.Stages
 
             UdpPacket udp = packet.Extract<UdpPacket>();
 
-            if (udp == null || udp.PayloadData.Length < 3)
+            if (udp == null || udp.PayloadData == null || udp.PayloadData.Length < 3)
             {
                 return null!;
             }

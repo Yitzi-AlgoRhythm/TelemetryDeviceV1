@@ -1,5 +1,5 @@
 ﻿using System.Text.Json.Serialization;
-using ParameterDataLib;
+using ParameterDataLib.Enums;
 using TelemetryDeviceV1.ICD.Helpers.TelemetryDeviceV1.Deserialization;
 using TelemetryDeviceV1.ICD.Enums;
 
