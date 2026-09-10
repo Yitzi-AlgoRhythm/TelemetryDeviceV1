@@ -20,28 +20,33 @@ namespace TelemetryDeviceV1.Dataflow
 
         public Pipeline Build()
         {
-            ExecutionDataflowBlockOptions execOptions = new ExecutionDataflowBlockOptions()
-            {
-                MaxDegreeOfParallelism = Environment.ProcessorCount,
-                EnsureOrdered = true
-            };
-
             TransformBlock<RawCapture, IEnumerable<byte>> builderBlock = new TransformBlock<RawCapture, IEnumerable<byte>>
             (
                 _builder.Build,
-                execOptions
+                new ExecutionDataflowBlockOptions()
+                {
+                    MaxDegreeOfParallelism = Environment.ProcessorCount,
+                    EnsureOrdered = true
+                }
             );
 
             TransformManyBlock<IEnumerable<byte>, ParameterData> decoderBlock = new TransformManyBlock<IEnumerable<byte>, ParameterData>
             (
                 _decoder.Decode,
-                execOptions
+                new ExecutionDataflowBlockOptions()
+                {
+                    MaxDegreeOfParallelism = Environment.ProcessorCount,
+                    EnsureOrdered = true
+                }
             );
 
             ActionBlock<ParameterData> kafkaBlock = new ActionBlock<ParameterData>
             (
                 _kafka.Transmit,
-                execOptions
+                new ExecutionDataflowBlockOptions()
+                {
+                    MaxDegreeOfParallelism = 1
+                }
             );
 
             DataflowLinkOptions options = new DataflowLinkOptions()

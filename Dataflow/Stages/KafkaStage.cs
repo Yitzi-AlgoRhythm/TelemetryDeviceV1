@@ -16,7 +16,7 @@ namespace TelemetryDeviceV1.Dataflow.Stages
             _logger = logger;
         }
 
-        public async Task Transmit(ParameterData parameterValue)
+        public void Transmit(ParameterData parameterValue)
         {
             _logger.Log("Kafka");
 
@@ -24,7 +24,7 @@ namespace TelemetryDeviceV1.Dataflow.Stages
 
             json = JsonSerializer.Serialize(parameterValue);
 
-            await _producer.SendTelemetryAsync(json);
+            _producer.SendTelemetryAsync(json);
         }
     }
 }
