@@ -3,6 +3,7 @@ using TelemetryDeviceV1.Dataflow;
 using TelemetryDeviceV1.Dataflow.Stages;
 using TelemetryDeviceV1.Dataflow.Stages.Helpers;
 using TelemetryDeviceV1.ICD;
+using TelemetryDeviceV1.Logging;
 using TelemetryDeviceV1.Services;
 using TelemetryDeviceV1.Sniffing.Helpers;
 
@@ -15,7 +16,12 @@ namespace TelemetryDeviceV1.Setup
             builder.Services.AddControllers();
 
             builder.Services.Configure<CaptureDeviceConfig>
-                            (builder.Configuration.GetSection(nameof(CaptureDeviceConfig)));
+                (builder.Configuration.GetSection(nameof(CaptureDeviceConfig)));
+
+            builder.Services.Configure<KafkaConfig>
+                (builder.Configuration.GetSection(nameof(KafkaConfig)));
+
+            builder.Services.AddSingleton<ILoggerTD, ConsoleLogger>();
 
             builder.Services.AddSingleton<IcdDeserializer>();
 

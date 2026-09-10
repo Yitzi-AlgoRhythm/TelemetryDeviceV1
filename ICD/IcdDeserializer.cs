@@ -1,31 +1,35 @@
-﻿using System.Text.Json;
+﻿using System.Security.Cryptography;
+using System.Text.Json;
+using TelemetryDeviceV1.Deserialization;
 
 namespace TelemetryDeviceV1.ICD
 {
     public class IcdDeserializer
     {
-        public required Dictionary<byte, IcdParameter[]> CorrelatorGroups { get; init; }
-
-        private static readonly string filePath = Path.Combine(AppContext.BaseDirectory, "Resources", "ICD_parameters.json");
-
-        private static readonly string[] groupIdentifiers = ["0.25", "1.0", "2.0", "4.0", "8.0", "16.0"];
-        private static readonly byte[] byteIdentifiers = [0, 1, 2, 4, 8, 16];
+        public required Dictionary<byte, List<IcdParameter>> CorrelatorGroups { get; init; }
 
 
         public IcdDeserializer()
         {
-            IcdParameter[] icdParameters;
+            List<IcdParameter> icdParameters;
 
-            using (FileStream stream = File.OpenRead(filePath))
+            using (FileStream stream = File.OpenRead(IcdConstants.IcdFile))
             {
-                icdParameters = JsonSerializer.Deserialize<IcdParameter[]>(stream)!; // check if there's a better way to deal with null here
+                icdParameters = JsonSerializer.Deserialize<List<IcdParameter>>(stream)!;
             }
 
-            CorrelatorGroups = new Dictionary<byte, IcdParameter[]>();
+            CorrelatorGroups = [];
 
-            for (int i = 0; i < groupIdentifiers.Length; i++)
+            foreach (IcdParameter parameter in icdParameters)
             {
-                CorrelatorGroups.Add(byteIdentifiers[i], icdParameters.Where(param => param.Correlator == groupIdentifiers[i]).ToArray());
+                byte paramCorrelator = (byte)parameter.Correlator;
+
+                if (!CorrelatorGroups.ContainsKey(paramCorrelator))
+                {
+                    CorrelatorGroups.Add(paramCorrelator, []);
+                }
+
+                CorrelatorGroups[paramCorrelator].Add(parameter);
             }
         }
     }

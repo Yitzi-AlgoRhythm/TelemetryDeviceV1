@@ -1,15 +1,21 @@
 ﻿using Confluent.Kafka;
+using Microsoft.Extensions.Options;
+using TelemetryDeviceV1.Config;
 
 namespace TelemetryDeviceV1.Dataflow.Stages.Helpers
 {
     public class TelemetryProducer : IDisposable
     {
-        private const string bootstrapServers = "localhost:9092";
+        private readonly string bootstrapServers;
+        private readonly string topicName;
 
-        private readonly IProducer<string, string> producer;
+        private readonly IProducer<string, string> _producer;
 
-        public TelemetryProducer()
+        public TelemetryProducer(IOptions<KafkaConfig> options)
         {
+            bootstrapServers = options.Value.BootstrapServers;
+            topicName = options.Value.TopicName;
+
             ProducerConfig config = new ProducerConfig
             {
                 BootstrapServers = bootstrapServers,
@@ -19,7 +25,7 @@ namespace TelemetryDeviceV1.Dataflow.Stages.Helpers
                 CompressionType = CompressionType.Snappy
             };
 
-            producer = new ProducerBuilder<string, string>(config).Build();
+            _producer = new ProducerBuilder<string, string>(config).Build();
         }
 
         public async Task SendTelemetryAsync(string jsonPayload)
@@ -29,22 +35,13 @@ namespace TelemetryDeviceV1.Dataflow.Stages.Helpers
                 Value = jsonPayload
             };
 
-            try
-            {
-                DeliveryResult<string, string> result = await producer.ProduceAsync("telemetry-topic", message);
-                Console.WriteLine($"Delivered to {result.TopicPartitionOffset}");
-            }
-            catch (ProduceException<string, string> ex)
-            {
-                Console.WriteLine($"Delivery failed: {ex.Error.Reason}");
-                throw;
-            }
+            await _producer.ProduceAsync(topicName, message);
         }
 
         public void Dispose()
         {
-            producer.Flush(TimeSpan.FromSeconds(10));
-            producer.Dispose();
+            _producer.Flush(TimeSpan.FromSeconds(10));
+            _producer.Dispose();
         }
     }
 }

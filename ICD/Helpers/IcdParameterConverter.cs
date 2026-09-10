@@ -1,12 +1,13 @@
-﻿namespace TelemetryDeviceV1.ICD.Helpers
-{
-    using System;
-    using System.Reflection;
-    using System.Text.Json;
-    using System.Text.Json.Serialization;
-    using global::TelemetryDeviceV1.ICD.Enums;
-    using ParameterDataLib.Enums;
+﻿using System;
+using System.Reflection;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using global::TelemetryDeviceV1.ICD.Enums;
+using ParameterDataLib.Enums;
+using TelemetryDeviceV1.Logging;
 
+namespace TelemetryDeviceV1.ICD.Helpers
+{
     namespace TelemetryDeviceV1.Deserialization
     {
         public class IcdParameterConverter : JsonConverter<IcdParameter>
@@ -29,7 +30,7 @@
 
                 int size = root.GetProperty("Size").GetInt32();
 
-                string correlator = root.GetProperty("Correlator").GetString()!;
+                int correlator = root.GetProperty("Correlator").GetInt32();
 
                 TelemetryUnit unit = JsonSerializer.Deserialize<TelemetryUnit>(root.GetProperty("Units").GetRawText(), options);
 
@@ -41,8 +42,6 @@
                 string bitMaskRaw = root.GetProperty("Mask").GetString()!;
 
                 byte[] bitMask = Convert.FromHexString(bitMaskRaw[2..]);
-
-                Console.WriteLine($"Deserialized parameter {name}");
 
                 return new IcdParameter
                 {

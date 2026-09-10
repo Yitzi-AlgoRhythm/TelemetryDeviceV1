@@ -20,7 +20,7 @@ namespace TelemetryDeviceV1.ICD
 
         public required byte[] BitMask { get; init; }
 
-        public required string Correlator { get; init; }
+        public required int Correlator { get; init; }
 
         public required TelemetryUnit Unit { get; init; }
 
