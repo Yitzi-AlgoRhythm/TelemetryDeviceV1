@@ -31,6 +31,8 @@ namespace TelemetryDeviceV1.Sniffing
 
             device.Open(DeviceModes.Promiscuous);
 
+            device.Filter = _deviceService.DeviceFilter;
+
             device.StartCapture();
         }
 

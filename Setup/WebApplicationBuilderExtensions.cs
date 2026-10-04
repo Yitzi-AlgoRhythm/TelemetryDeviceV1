@@ -15,8 +15,8 @@ namespace TelemetryDeviceV1.Setup
         {
             builder.Services.AddControllers();
 
-            builder.Services.Configure<CaptureDeviceConfig>
-                (builder.Configuration.GetSection(nameof(CaptureDeviceConfig)));
+            builder.Services.Configure<CaptureConfig>
+                (builder.Configuration.GetSection(nameof(CaptureConfig)));
 
             builder.Services.Configure<KafkaConfig>
                 (builder.Configuration.GetSection(nameof(KafkaConfig)));

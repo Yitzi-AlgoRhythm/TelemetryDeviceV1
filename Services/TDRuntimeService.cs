@@ -39,6 +39,14 @@ namespace TelemetryDeviceV1.Services
 
                 _sniffer.BeginCapture(_cts.Token);
             }
+            catch
+            {
+                _cts?.Dispose();
+                _cts = null;
+                _pipeline = null;
+                _sniffer = null;
+                throw;
+            }
             finally
             {
                 _sem.Release();

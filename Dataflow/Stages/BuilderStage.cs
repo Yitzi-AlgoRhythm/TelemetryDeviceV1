@@ -1,8 +1,6 @@
 ﻿using PacketDotNet;
 using SharpPcap;
 using TelemetryDeviceV1.Deserialization;
-using TelemetryDeviceV1.Logging;
-
 namespace TelemetryDeviceV1.Dataflow.Stages
 {
     public class BuilderStage : IBuilderStage
