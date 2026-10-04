@@ -59,7 +59,12 @@ namespace TelemetryDeviceV1.Dataflow
 
             builderBlock.LinkTo(DataflowBlock.NullTarget<IEnumerable<byte>>());
 
-            return new Pipeline(entryBlock: builderBlock, completion: kafkaBlock.Completion);
+            return new Pipeline
+                (
+                    entryBlock: builderBlock, 
+                    completion: kafkaBlock.Completion,
+                    kafkaStage: _kafka
+                );
         }
     }
 }

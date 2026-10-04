@@ -5,11 +5,12 @@ using TelemetryDeviceV1.Logging;
 
 namespace TelemetryDeviceV1.Dataflow.Stages.Helpers
 {
-    public class TelemetryProducer : IDisposable
+    public class TelemetryProducer
     {
         private readonly string bootstrapServers;
         private readonly string topicName;
         private readonly long pollWaitTime;
+        private readonly long flushWaitTime;
 
         private readonly IProducer<string, string> _producer;
 
@@ -20,6 +21,7 @@ namespace TelemetryDeviceV1.Dataflow.Stages.Helpers
             bootstrapServers = options.Value.BootstrapServers;
             topicName = options.Value.TopicName;
             pollWaitTime = 0;
+            flushWaitTime = 10;
 
             ProducerConfig config = new ProducerConfig
             {
@@ -54,10 +56,9 @@ namespace TelemetryDeviceV1.Dataflow.Stages.Helpers
             }
         }
 
-        public void Dispose()
+        public void Flush()
         {
-            _producer.Flush(TimeSpan.FromSeconds(10));
-            _producer.Dispose();
+            _producer.Flush(TimeSpan.FromSeconds(flushWaitTime));
         }
     }
 }

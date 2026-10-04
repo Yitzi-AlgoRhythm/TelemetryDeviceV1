@@ -32,21 +32,20 @@ namespace TelemetryDeviceV1.Dataflow.Stages.Helpers
         {
             byte[] valueArr = _data.Skip(icdParam.Offset).Take(icdParam.Size).ToArray();
 
-            ValueBase value;
+            double value;
 
             if (icdParam.Type == ParameterDataType.Float64)
             {
-                value = new DoubleValue(BitMaskService.GetFloat64(valueArr, icdParam.BitMask));
+                value = BitMaskService.GetFloat64(valueArr, icdParam.BitMask);
             }
             else
             {
-                value = new IntValue(BitMaskService.GetInt32(valueArr, icdParam.BitMask, icdParam.Type));
+                value = BitMaskService.GetInt32(valueArr, icdParam.BitMask, icdParam.Type);
             }
 
             return new ParameterData()
             {
                 Name = icdParam.Name,
-                Type = icdParam.Type == ParameterDataType.Float64 ? DataType.Double : DataType.Int,
                 Units = icdParam.Unit,
                 Value = value,
                 TimestampMS = _timestampMS

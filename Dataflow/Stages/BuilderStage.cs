@@ -9,17 +9,8 @@ namespace TelemetryDeviceV1.Dataflow.Stages
     {
         private static readonly int syncBytesCount = IcdConstants.SyncBytes.Length;
 
-        private readonly ILoggerTD _logger;
-
-        public BuilderStage(ILoggerTD logger)
-        {
-            _logger = logger;
-        }
-
         public IEnumerable<byte> Build(RawCapture capture)
         {
-            _logger.Log("Builder");
-
             Packet packet = Packet.ParsePacket(capture.LinkLayerType, capture.Data);
 
             UdpPacket udp = packet.Extract<UdpPacket>();

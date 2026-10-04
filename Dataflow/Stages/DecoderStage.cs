@@ -10,18 +10,13 @@ namespace TelemetryDeviceV1.Dataflow.Stages
     {
         private readonly IcdDeserializer _deserializer;
 
-        private readonly ILoggerTD _logger;
-
         public DecoderStage(IcdDeserializer deserializer, ILoggerTD logger)
         {
             _deserializer = deserializer;
-            _logger = logger;
         }
         
         public IEnumerable<ParameterData> Decode(IEnumerable<byte> data)
         {
-            _logger.Log("Decoder");
-
             if (data == Enumerable.Empty<byte>())
             {
                 yield break;

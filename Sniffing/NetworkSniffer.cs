@@ -25,6 +25,7 @@ namespace TelemetryDeviceV1.Sniffing
             {
                 device.StopCapture();
                 device.OnPacketArrival -= OnArrival;
+                device.Close();
                 _packetHandler.Complete();
             });
 
