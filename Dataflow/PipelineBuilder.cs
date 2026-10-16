@@ -20,7 +20,7 @@ namespace TelemetryDeviceV1.Dataflow
 
         public Pipeline Build()
         {
-            TransformBlock<RawCapture, IEnumerable<byte>> builderBlock = new TransformBlock<RawCapture, IEnumerable<byte>>
+            TransformBlock<RawCapture, byte[]> builderBlock = new
             (
                 _builder.Build,
                 new ExecutionDataflowBlockOptions()
@@ -30,7 +30,7 @@ namespace TelemetryDeviceV1.Dataflow
                 }
             );
 
-            TransformManyBlock<IEnumerable<byte>, ParameterData> decoderBlock = new TransformManyBlock<IEnumerable<byte>, ParameterData>
+            TransformManyBlock<byte[], List<ParameterData>> decoderBlock = new
             (
                 _decoder.Decode,
                 new ExecutionDataflowBlockOptions()
@@ -40,7 +40,7 @@ namespace TelemetryDeviceV1.Dataflow
                 }
             );
 
-            ActionBlock<ParameterData> kafkaBlock = new ActionBlock<ParameterData>
+            ActionBlock<List<ParameterData>> kafkaBlock = new
             (
                 _kafka.Transmit,
                 new ExecutionDataflowBlockOptions()

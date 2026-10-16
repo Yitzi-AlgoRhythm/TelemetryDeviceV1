@@ -7,7 +7,7 @@ namespace TelemetryDeviceV1.Dataflow.Stages
     {
         private static readonly int syncBytesCount = IcdConstants.SyncBytes.Length;
 
-        public IEnumerable<byte> Build(RawCapture capture)
+        public byte[] Build(RawCapture capture)
         {
             Packet packet = Packet.ParsePacket(capture.LinkLayerType, capture.Data);
 
@@ -28,7 +28,7 @@ namespace TelemetryDeviceV1.Dataflow.Stages
 
             ulong timestampMS = GetTimestamp(capture.Timeval);
 
-            return [.. BitConverter.GetBytes(timestampMS), .. udp.PayloadData.Skip(IcdConstants.SyncBytes.Length)];
+            return [.. BitConverter.GetBytes(timestampMS), .. udp.PayloadData.Skip(syncBytesCount)];
         }
 
         private static ulong GetTimestamp(PosixTimeval timeval)

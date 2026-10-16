@@ -1,8 +1,6 @@
 ﻿using ParameterDataLib;
 using TelemetryDeviceV1.Dataflow.Stages.Helpers;
 using TelemetryDeviceV1.ICD;
-using TelemetryDeviceV1.ICD.Enums;
-using TelemetryDeviceV1.Logging;
 
 namespace TelemetryDeviceV1.Dataflow.Stages
 {
@@ -10,24 +8,28 @@ namespace TelemetryDeviceV1.Dataflow.Stages
     {
         private readonly IcdDeserializer _deserializer;
 
-        public DecoderStage(IcdDeserializer deserializer, ILoggerTD logger)
+        public DecoderStage(IcdDeserializer deserializer)
         {
             _deserializer = deserializer;
         }
         
-        public IEnumerable<ParameterData> Decode(IEnumerable<byte> data)
+        public IEnumerable<List<ParameterData>> Decode(byte[] data)
         {
-            if (data == Enumerable.Empty<byte>())
+            if (data is null)
             {
-                yield break;
+                return [];
             }
 
-            PacketData packetData = new PacketData(data);
+            PacketData packetData = new(data);
+
+            List<ParameterData> result = [];
 
             foreach (IcdParameter icdParam in _deserializer.CorrelatorGroups[packetData.CorrelatorByte])
             {
-                yield return packetData.GetParameterData(icdParam);
+                result.Add(packetData.GetParameterData(icdParam));
             }
+
+            return [result];
         }
     }
 }
